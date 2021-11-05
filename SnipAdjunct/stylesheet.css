@@ -1,0 +1,280 @@
+*
+{
+    margin: 0;
+}
+
+:root
+{
+    --IconLabelWidth: clamp(30px, 2.2vw + 5px, 40px);
+    --H1Width: clamp(50px, 3.6vw + 5px, 65px);
+
+    --PrimaryColor: #222e8f;
+    --PrimaryColorLighterShade1: #424eb1;
+    --PrimaryColorLighterShade2: #5662c5;
+    --PrimaryColorLighterShade3: #727eda;
+    --PrimaryColorLighterShade4: #99a2e7;
+    --PrimaryColorLighterShade5: #b0b6ee;
+    --PrimaryColorMostLighterShade: #ccd1f8;
+    --PrimaryColorDarkerShade1: #121b69;
+    --PrimaryColorDarkerShade2: #070e47;
+    --PrimaryColorDarkerShade3: #010522;
+    --PrimaryColorMostDarkerShade: #000314;
+
+    --ComplementaryColor: #a72121;
+    --ComplementaryColorLighterShade1: #c22c2c;
+    --ComplementaryColorLighterShade2: #cf3e3e;
+    --ComplementaryColorLighterShade3: #e75555;
+    --ComplementaryColorLighterShade4: #f16e6e;
+    --ComplementaryColorLighterShade5: #ff8c8c;
+    --ComplementaryColorMostLighterShade: #facece;
+    --ComplementaryColorDarkerShade1: #811313;
+    --ComplementaryColorDarkerShade2: #550b0b;
+    --ComplementaryColorDarkerShade3: #330505;
+    --ComplementaryColorMostDarkerShade: #110101;
+}
+
+@font-face {
+    font-family: Zeniq;
+    src: url('../Assets/Zeniq.ttf');
+}
+
+h2
+{
+    font-family: 'Source Code Pro', monospace;
+
+    font-size: calc(var(--H1Width)*0.6);
+}
+
+nav
+{
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    gap: clamp(20px, 3.5vw + 5px, 70px);
+
+    height: 150px;
+    padding-bottom: 20px;
+
+    background: rgb(0,3,20);
+    background: linear-gradient(0deg, rgba(0,3,20,0.14889705882352944) 3%, rgba(0,3,20,0.5) 9%, rgba(0,3,20,1) 20%);
+
+    color: var(--PrimaryColorMostLighterShade);
+}
+
+nav > *:last-child
+{
+    margin-right: auto;
+}
+
+#NavIcon
+{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#NavIconImg
+{
+    width: clamp(85px, 6.8vw + 5px, 105px);
+
+    transition: transform 0.7s cubic-bezier(0.600, 0.025, 0.355, 0.995);
+}
+
+#NavIconImg:hover
+{
+    transform: rotate(360deg);
+}
+
+#LabelToIcon
+{
+    font-size: var(--IconLabelWidth);
+    font-family: Zeniq;
+
+    letter-spacing: calc(-3px);
+}
+
+
+#SpanNavIcon
+{
+    font-size: calc(var(--IconLabelWidth)*1.3);
+}
+
+.NavItem
+{
+    justify-self: center;
+    align-self: center;
+
+    transition: color 0.45s cubic-bezier(0.000, 0.645, 0.190, 0.740);
+}
+
+.NavItem:nth-child(2):hover
+{
+    color: #c22c2c;
+}
+
+.NavItem:nth-child(3):hover
+{
+    color: #c22c2c;
+}
+
+.NavText
+{
+    font-family: 'Source Code Pro', monospace;
+    font-size: clamp(20px, 2vw + 5px, 45px);
+
+    cursor: pointer;
+}
+
+#NavItemSingIn
+{
+    position: relative;
+
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--ComplementaryColorLighterShade1);
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+#NavItemSingIn::before
+{
+    content: '';
+    position: absolute;
+    top: calc(-50% + -10%*2.36509);
+    left: -5%;
+    right: 0;
+    bottom: 0;
+    width: 110%;
+    height: calc(110%*2.36509);
+    background: #000;
+    border-radius: 50%;
+    z-index: -1;
+    filter: opacity(0.5);
+    transform: scale(0);
+    transition: 0.45s cubic-bezier(0.000, 0.645, 0.190, 0.740);
+}
+    
+#NavItemSingIn:hover::before
+{  
+    transform: scale(1);
+    filter: opacity(1);
+    background-color: #c22c2c; 
+}
+
+#NavItemSingUp
+{
+    position: relative;
+
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--ComplementaryColorLighterShade1);
+    border-radius: 8px;
+
+    background-color: var(--ComplementaryColorLighterShade1);
+
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.45s;
+    transition-timing-function:  cubic-bezier(0.000, 0.645, 0.190, 0.740);
+
+    overflow: hidden;
+}
+
+#NavItemSingUp:hover
+{
+    background-color: var(--PrimaryColorMostLighterShade);
+
+    border-color: var(--PrimaryColorMostLighterShade);
+
+    color: var(--ComplementaryColorLighterShade1);
+}
+
+#NavItemSingUp > #InnerCircle
+{
+    position: absolute;
+
+    width: calc(20%);
+    height: calc(20%*4.6);
+
+    border-radius: 50%;
+
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.904) 0%, rgba(255,255,255,0.1) 40%,rgba(255,255,255,0) 100%);
+}
+
+#Coder
+{
+    
+    width: fit-content;
+
+    margin-top: 120px;
+
+    margin-left: 3vw;
+
+}
+
+#Coder > .Title
+{
+    width: 14vw;
+
+    text-align: center;
+}
+
+#Coder > .Img
+{
+    width: 14vw;
+
+    border-radius: 50%;
+
+    margin-top: 40px;
+    margin-right: 40px;
+
+    box-shadow: rgba(0, 0, 0, 0.534) -8px 15px 10px 0px;
+
+    float: left;
+}
+
+#SnipDesc > #Description
+{
+    font-size: 30px;
+
+    margin-top: 150px;
+    margin-right: 3vw;
+    margin-left: 3vw;
+
+    font-family: 'Source Code Pro', monospace;
+}
+
+#SnipDesc > #Description::first-letter
+{
+    margin-left: 80px;
+}
+
+#Tag
+{
+    width: 150px;
+    height: 35px;
+
+    border: rgb(248, 112, 0) solid 3.5px;
+    border-radius: 15px;
+
+    display: grid;
+}
+
+#Tag > p
+{
+    font-size: 30px;
+
+    font-family: 'Source Code Pro', monospace;
+
+    place-self: center;
+}
