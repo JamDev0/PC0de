@@ -214,10 +214,11 @@ nav > *:last-child
 #SnipDesc
 {
     display: grid;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto min-content;
     grid-template-columns: min-content auto;
     grid-template-areas: 
     'Coder Tags'
+    'Coder Stars';
 }
 
 #Coder
@@ -298,4 +299,53 @@ nav > *:last-child
     font-family: 'Source Code Pro', monospace;
 
     place-self: center;
+}
+
+#Classification
+{
+    grid-area: Stars;
+
+    margin-top: 40px;
+
+    justify-self: center;
+
+    display: grid;
+
+    grid-template-columns: auto auto;
+}
+
+#Stars
+{   
+    height: min-content;
+
+    border-width: 0px;
+    border-top-width: 1.7px;
+    border-bottom-width: 1.7px;
+    border-color: var(--PrimaryColorMostDarkerShade);
+    border-style: solid;
+
+    padding: 8px;
+
+    float: left;
+}
+
+.StarSvg
+{
+    padding-left: 28px;
+
+    width: 4.5vw;
+}
+
+.StarSvg:last-of-type
+{
+    padding-right: 28px;
+}
+
+#Stars > .Arrow
+{
+    margin-left: 30px;
+
+    width: 4.5vw;
+
+    align-self: center;
 }
