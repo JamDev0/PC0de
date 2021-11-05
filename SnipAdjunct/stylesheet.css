@@ -211,8 +211,18 @@ nav > *:last-child
     background: radial-gradient(circle, rgba(255, 255, 255, 0.904) 0%, rgba(255,255,255,0.1) 40%,rgba(255,255,255,0) 100%);
 }
 
+#SnipDesc
+{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: min-content auto;
+    grid-template-areas: 
+    'Coder Tags'
+}
+
 #Coder
 {
+    grid-area: Coder;
     
     width: fit-content;
 
@@ -239,27 +249,38 @@ nav > *:last-child
     margin-right: 40px;
 
     box-shadow: rgba(0, 0, 0, 0.534) -8px 15px 10px 0px;
-
-    float: left;
 }
 
-#SnipDesc > #Description
+#Description
 {
+    grid-area: Description;
     font-size: 30px;
 
-    margin-top: 150px;
+    margin-top: 40px;
     margin-right: 3vw;
     margin-left: 3vw;
 
     font-family: 'Source Code Pro', monospace;
 }
 
-#SnipDesc > #Description::first-letter
+#Description::first-letter
 {
     margin-left: 80px;
 }
 
-#Tag
+#Tags
+{
+    grid-area: Tags;
+
+    width: fit-content;
+
+    margin-left: 5vw;
+
+    justify-self: left;
+    align-self: center;
+}
+
+.Tag
 {
     width: 150px;
     height: 35px;
@@ -270,7 +291,7 @@ nav > *:last-child
     display: grid;
 }
 
-#Tag > p
+.Tag > p
 {
     font-size: 30px;
 
