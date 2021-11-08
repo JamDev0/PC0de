@@ -16,19 +16,33 @@ SingUpButton.hover(function(){
 });
 
 let LabelForIcon = $('#LabelToIcon');
-LabelForIcon.hover(()=>{
-    $('#NavIconImg').css('transform', 'rotate(360deg)');
-},()=>{
-    $('#NavIconImg').css('transform', 'rotate(0deg)');
-})
+LabelForIcon.hover(NavIconHover, NavIconHoverOut);
+
+let NavIconImg = $('#NavIconImg');
+NavIconImg.hover(NavIconHover, NavIconHoverOut);
+
+function NavIconHover()
+{
+    LabelForIcon.css({'cursor': 'pointer'});
+
+    NavIconImg.css({
+        'transform': 'rotate(360deg)',
+        'cursor': 'pointer'
+    });
+}
+
+function NavIconHoverOut()
+{
+    LabelForIcon.css({'cursor': 'default'});
+
+    NavIconImg.css({
+        'transform': 'rotate(0deg)',
+        'cursor': 'default'
+    });
+}
 
 let ExploreButton = $('#ButtonExplore');
 let SvgToButton = $('#ButtonExplore>#Svg>*');
-// ExploreButton.hover(function(){
-//     SvgToButton.css('fill', '#ccd1f8');
-// }, function(){
-//     SvgToButton.css('fill', '#000314');
-// });
 
 let Arrow = $('#Arrow');
 Arrow.click(()=>{
@@ -54,8 +68,8 @@ let SCoATD = false;
 let SChATD = false;
 
 $(window).scroll(function(Event){
-    let WinTrigH = (window.scrollY + window.outerHeight*0.55);
-    let WinUnTrigH = (window.scrollY + window.outerHeight*0.45);
+    let WinTrigH = (window.scrollY + window.outerHeight*0.60);
+    let WinUnTrigH = (window.scrollY + window.outerHeight*0.40);
 
     if(WinTrigH < SectionHowItWorks.position().top)
     {

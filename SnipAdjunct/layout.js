@@ -16,8 +16,27 @@ SingUpButton.hover(function(){
 });
 
 let LabelForIcon = $('#LabelToIcon');
-LabelForIcon.hover(()=>{
-    $('#NavIconImg').css('transform', 'rotate(360deg)');
-},()=>{
-    $('#NavIconImg').css('transform', 'rotate(0deg)');
-})
+LabelForIcon.hover(NavIconHover, NavIconHoverOut);
+
+let NavIconImg = $('#NavIconImg');
+NavIconImg.hover(NavIconHover, NavIconHoverOut);
+
+function NavIconHover()
+{
+    LabelForIcon.css({'cursor': 'pointer'});
+
+    NavIconImg.css({
+        'transform': 'rotate(360deg)',
+        'cursor': 'pointer'
+    });
+}
+
+function NavIconHoverOut()
+{
+    LabelForIcon.css({'cursor': 'default'});
+
+    NavIconImg.css({
+        'transform': 'rotate(0deg)',
+        'cursor': 'default'
+    });
+}
