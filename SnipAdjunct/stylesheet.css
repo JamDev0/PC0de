@@ -211,7 +211,7 @@ nav > *:last-child
     background: radial-gradient(circle, rgba(255, 255, 255, 0.904) 0%, rgba(255,255,255,0.1) 40%,rgba(255,255,255,0) 100%);
 }
 
-#SnipDesc
+#SnipDescHeader
 {
     display: grid;
     grid-template-rows: auto min-content;
@@ -348,4 +348,37 @@ nav > *:last-child
     width: 4.5vw;
 
     align-self: center;
+}
+
+#SnippetAndDoc
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#SnippetAndDocContainer
+{
+    width: 85vw;
+    height: calc(85vw*0.4);
+
+    margin: auto;
+
+    border-radius: 20px;
+
+    box-shadow: black -20px 20px 50px 5px;
+
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 
+    'Snippet Doc';
+}
+
+#Snippet
+{
+    grid-area: Snippet;
+}
+
+#Doc
+{
+    grid-area: Doc;
 }
